@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Übersicht{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/pages/overview.css">
+{% endblock %}
+
+{% block body %}
+    <h1>
+        {% if prefix %}
+        <a href="/configurator/prefix">{{ prefix }}</a>
+        {% endif %}
+        <a href="/configurator/name">{{ name }}</a>
+        {% if suffix %}
+        <a href="/configurator/suffix">{{ suffix }}</a>
+        {% endif %}
+    </h1>
+
+    <nav>
+        <ul>
+            {% if not prefix %}
+            <li>
+                <a href="/configurator/prefix">Präfix anpassen</a>
+            </li>
+            {% endif %}
+            {% if not name %}
+            <li>
+                <a href="/configurator/name">Name anpassen</a>
+            </li>
+            {% endif %}
+            {% if not suffix %}
+            <li>
+                <a href="/configurator/suffix">Suffix anpassen</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% if easteregg %}
+        <img src="/img/easteregg.jpg" alt="Herz 5">
+    {% endif %}
+
+{% endblock %}
